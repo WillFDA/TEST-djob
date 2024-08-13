@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: white;
+  overflow: auto;
+}
+
+section {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1380px;
+  padding: 1rem;
+  width: 100%;
+}
+
+.movie-filters {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.movie-pagination {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.movie-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+}
+
+/* ----- MOVIE CARD CSS ----- */
+.movie-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.movie-card {
+  border: 1px solid #DCDCDC;
+  color: #000000;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.movie-card__info {
+  padding: 0.75rem;
+}
+
+.movie-card__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.movie-card__link-image {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 2/3;
+  background-color: #c2c2c2;
+  overflow: hidden;
+}
+
+.movie-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out; 
+}
+
+
+.movie-card {
+  transition: box-shadow 0.3s ease-in-out; 
+}
+
+.movie-card:hover {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.movie-card:hover {
+  .movie-card__image {
+    transform: scale(1.1);
+  }
+}
+
+/* ----- MOVIE TAG ----- */
+
+.movie-card__category {
+  font-size: 0.8rem;
+  color: #202020;
+  background-color: #dedede;
+  padding: 0.3rem 1rem;
+  border-radius: 0.3rem;
+}
+
+/* ----- MOVIE DELETE BUTTON ----- */
+
+.movie-card__delete-btn {
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  border: none;
+  border-radius: 6px;
+  background-color: #E83434;
+}
+
+.delete_btn-icon {
+  color:white;
+  width: 1.2rem;
+}
