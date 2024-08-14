@@ -1,9 +1,59 @@
+:root {
+  /* Light theme colors (same as before) */
+  --color-primary: #f8fafc;
+  --color-primary-darker: #f1f5f9;
+  --color-tertiary: #ffffff;
+  --color-secondary-light: #e5e7eb;
+  --color-secondary: #d1d5db;
+  --color-secondary-darker: #a3a3a3;
+  --color-secondary-darkest: #4b5563;
+  --delete-button-bg-color: transparent;
+
+
+  --color-accent-danger: #dc2626;
+  --color-accent-danger-darker: #b91c1c;
+  --color-accent-danger-lighter: #ef4444;
+
+  --color-category: #2563eb;
+  --color-category-lighter: #3b82f6;
+  --color-category-darker: #1d4ed8;
+  --color-title: #0f172a;
+}
+
+:root.dark {
+  /* Light theme colors (same as before) */
+  --color-primary: #0a0a0a;
+  --color-primary-darker: #171717;
+  --color-tertiary: #262626;
+  --color-secondary-light: #404040;
+  --color-secondary: #525252;
+  --color-secondary-darker: #737373;
+  --color-secondary-darkest: #a3a3a3;
+  --delete-button-bg-color: transparent;
+
+
+  --color-accent-danger: #dc2626;
+  --color-accent-danger-darker: #b91c1c;
+  --color-accent-danger-lighter: #ef4444;
+
+  --color-category: #2563eb;
+  --color-category-lighter: #3b82f6;
+  --color-category-darker: #1d4ed8;
+  --color-title: #fafafa;
+}
+
+
+
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  background-color: var(--color-primary-darker);
 }
 
 a {
@@ -21,7 +71,6 @@ main {
   gap: 2rem;
   min-height: 100vh;
   width: 100vw;
-  background-color: white;
   overflow: auto;
 }
 
@@ -68,17 +117,18 @@ section {
 }
 
 .movie-card {
-  border: 1px solid #DCDCDC;
-  color: #000000;
+  color: var(--color-title);
   overflow: hidden;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
+  background-color: var(--color-tertiary);
+  padding: 1rem;
 }
 
 .movie-card__info {
-  padding: 0.75rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .movie-card__title {
@@ -95,8 +145,9 @@ section {
   width: 100%;
   max-width: 100%;
   aspect-ratio: 2/3;
-  background-color: #c2c2c2;
+  background-color: var(--color-secondary-light);
   overflow: hidden;
+  border-radius: 0.5rem;
 }
 
 .movie-card__image {
@@ -129,8 +180,8 @@ section {
 
 .movie-card__category {
   font-size: 0.8rem;
-  color: #202020;
-  background-color: #dedede;
+  color: var(--color-title);
+  background-color: var(--color-secondary-light);
   padding: 0.3rem 1rem;
   border-radius: 0.3rem;
 }
@@ -146,19 +197,15 @@ section {
   padding: 0px;
   border: none;
   border-radius: 6px;
-  background-color: white;
+  background-color: var(--delete-button-bg-color);
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
 
 .delete_btn-icon {
-  color:#E83434;;
+  color: var(--color-accent-danger);
   width: 1.2rem;
-}
-
-.movie-card__delete-btn:hover {
-  background-color: #ebebeb;
 }
 
 /* ----- MOVIE LIKES BUTTON CSS ----- */
@@ -169,7 +216,7 @@ section {
   justify-content: center;
   width: fit-content;
   padding: 0rem;
-  background-color: #f1f0f0;
+  background-color: var(--color-primary-darker);
   border-radius: 32px;
 }
 .movie-card__like-btn, .movie-card__dislike-btn {
@@ -191,8 +238,8 @@ section {
   outline: none;
 }
 .movie-card__like-btn:active, .movie-card__dislike-btn:active {
-  background-color: #b8b8b8 !important;
-  border-color:  #b8b8b8 !important;
+  background-color: var(--color-secondary) !important;
+  border-color:  var(--color-secondary) !important;
 }
 
 .movie-card__like-btn {
@@ -200,7 +247,7 @@ section {
   border-bottom-left-radius: 32px;
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
-  border: 1px solid #f1f0f0;
+  border: 1px solid var(--color-primary-darker);
 }
 
 .movie-card__dislike-btn {
@@ -208,7 +255,7 @@ section {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 32px;
   border-top-right-radius: 32px;
-  border: 1px solid #f1f0f0;
+  border: 1px solid var(--color-primary-darker);
 }
 
 .like_btn-icon, .dislike_btn-icon {
@@ -216,7 +263,7 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #000000;
+  color: var(--color-title);
   width: 1.2rem;
 }
 
@@ -230,8 +277,8 @@ section {
 }
 
 .movie-card__like-btn:hover, .movie-card__dislike-btn:hover {
-  background-color: #dadada;
-  border-color: #f1f0f0;
+  background-color: var(--color-secondary-light);
+  border-color: var(--color-secondary-light);
 }
 
 
