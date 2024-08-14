@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { TrashIcon } from "@heroicons/react/20/solid";
+import { TrashIcon, HandThumbUpIcon, HandThumbDownIcon } from "@heroicons/react/20/solid";
+import { HandThumbUpIcon as HandThumbUpIconOutlined, HandThumbDownIcon as HandThumbDownIconOutlined } from '@heroicons/react/24/outline';
 import {data} from "../../data/Etude-de-cas-front-movies-data"
 
 type Movie = {
@@ -44,8 +45,14 @@ const Card: React.FC = () => {
             </div>
             <div className='movie-card__footer'>
               <div className='movie-card__likes'>
-                <button className='movie-card__like-btn'></button>
-                <button className='movie-card__dislike-btn'></button>
+                <button className='movie-card__like-btn'>
+                  <HandThumbUpIcon className="like_btn-icon" />
+                  <HandThumbUpIconOutlined className="like_btn-icon outline" />
+                </button>
+                <button className='movie-card__dislike-btn'>
+                  <HandThumbDownIconOutlined className="like_btn-icon outline" />
+                  <HandThumbDownIcon className="dislike_btn-icon" />
+                </button>
               </div>
               <span className="movie-card__category">{movie.category}</span>
             </div>

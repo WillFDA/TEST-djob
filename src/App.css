@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -59,6 +61,12 @@ section {
   gap: 1rem;
 }
 
+.movie-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .movie-card {
   border: 1px solid #DCDCDC;
   color: #000000;
@@ -68,6 +76,9 @@ section {
 
 .movie-card__info {
   padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .movie-card__title {
@@ -108,6 +119,10 @@ section {
   .movie-card__image {
     transform: scale(1.1);
   }
+  .movie-card__delete-btn {
+    visibility: visible;
+    opacity: 100;
+  }
 }
 
 /* ----- MOVIE TAG ----- */
@@ -131,10 +146,95 @@ section {
   padding: 0px;
   border: none;
   border-radius: 6px;
-  background-color: #E83434;
+  background-color: white;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .delete_btn-icon {
-  color:white;
+  color:#E83434;;
   width: 1.2rem;
 }
+
+.movie-card__delete-btn:hover {
+  background-color: #ebebeb;
+}
+
+/* ----- MOVIE LIKES BUTTON CSS ----- */
+
+.movie-card__likes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 0rem;
+  background-color: #f1f0f0;
+  border-radius: 32px;
+}
+.movie-card__like-btn, .movie-card__dislike-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 1rem 1.8rem;
+  margin: 0px;
+  transition: 
+  border-color 0.3s ease-out,
+  background-color 0.15s ease-out;
+}
+
+.movie-card__like-btn:focus, .movie-card__dislike-btn:focus {
+  outline: none;
+}
+.movie-card__like-btn:active, .movie-card__dislike-btn:active {
+  background-color: #b8b8b8 !important;
+  border-color:  #b8b8b8 !important;
+}
+
+.movie-card__like-btn {
+  border-top-left-radius: 32px;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  border: 1px solid #f1f0f0;
+}
+
+.movie-card__dislike-btn {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 32px;
+  border-top-right-radius: 32px;
+  border: 1px solid #f1f0f0;
+}
+
+.like_btn-icon, .dislike_btn-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000000;
+  width: 1.2rem;
+}
+
+.like_btn-icon, .dislike_btn-icon {
+  visibility: hidden;
+  opacity: 0;
+  &.outline {
+    visibility: visible;
+    opacity: 100;
+  }
+}
+
+.movie-card__like-btn:hover, .movie-card__dislike-btn:hover {
+  background-color: #dadada;
+  border-color: #f1f0f0;
+}
+
+
+
+
+
