@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { TrashIcon, HandThumbUpIcon, HandThumbDownIcon } from "@heroicons/react/20/solid";
-import { HandThumbUpIcon as HandThumbUpIconOutlined, HandThumbDownIcon as HandThumbDownIconOutlined } from '@heroicons/react/24/outline';
+import { HandThumbUpIcon, HandThumbDownIcon } from "@heroicons/react/20/solid";
+import { HandThumbUpIcon as HandThumbUpIconOutlined, HandThumbDownIcon as HandThumbDownIconOutlined, TrashIcon } from '@heroicons/react/24/outline';
 import {data} from "../../data/Etude-de-cas-front-movies-data"
 
 type Movie = {

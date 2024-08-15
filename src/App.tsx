@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Card from "./components/Card"
 import Select from "./components/Select"
+import ThemeToggle from "./components/ThemeToggle"
 import './App.css'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     <main>
     <section className="movie-filters">
       <Select onCategoriesChange={handleCategoriesChange} />
+      <ThemeToggle />
     </section>
 
       <section className="movie-container">
