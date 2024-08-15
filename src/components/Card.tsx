@@ -11,7 +11,11 @@ type Movie = {
   dislikes: number
 }
 
-const Card: React.FC = () => {
+type CardProps = {
+  selectedCategories: string[];
+}
+
+const Card: React.FC<CardProps> = ({ selectedCategories }) => {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
@@ -27,11 +31,13 @@ const Card: React.FC = () => {
     fetchData();
   }, []);
 
-  console.log(movies); // Ceci affichera les données une fois qu'elles seront chargées
+  const filteredMovies = selectedCategories.length > 0
+    ? movies.filter(movie => selectedCategories.includes(movie.category))
+    : movies;
 
   return (
     <>
-      {movies.map((movie) => (
+      {filteredMovies.map((movie) => (
         <article key={movie.id} className="movie-card">
           <a href="/" className="movie-card__link-image">
             <img className='movie-card__image' src={`./src/assets/${movie.id}.webp`} alt="" />

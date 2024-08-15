@@ -1,59 +1,71 @@
 :root {
-  /* Light theme colors (same as before) */
-  --color-primary: #f8fafc;
-  --color-primary-darker: #f1f5f9;
-  --color-tertiary: #ffffff;
-  --color-secondary-light: #e5e7eb;
-  --color-secondary: #d1d5db;
-  --color-secondary-darker: #a3a3a3;
-  --color-secondary-darkest: #4b5563;
-  --delete-button-bg-color: transparent;
+  /* Base colors */
+  --color-base-100: #f8fafc;
+  --color-base-200: #f1f5f9;
+  --color-base-300: #e5e7eb;
+  --color-base-400: #d1d5db;
+  --color-base-500: #a3a3a3;
+  --color-base-600: #4b5563;
+  --color-base-700: #0f172a;
 
+  /* Functional colors */
+  --color-background-main: var(--color-base-200);
+  --color-background-elevated: #ffffff;
+  --color-text-primary: var(--color-base-700);
+  --color-text-secondary: var(--color-base-600);
+  --color-border: var(--color-base-300);
 
+  /* Accent colors */
   --color-accent-danger: #dc2626;
-  --color-accent-danger-darker: #b91c1c;
-  --color-accent-danger-lighter: #ef4444;
+  --color-accent-danger-strong: #b91c1c;
+  --color-accent-danger-weak: #ef4444;
 
-  --color-category: #2563eb;
-  --color-category-lighter: #3b82f6;
-  --color-category-darker: #1d4ed8;
-  --color-title: #0f172a;
+  --color-accent-primary: #2563eb;
+  --color-accent-primary-strong: #1d4ed8;
+  --color-accent-primary-weak: #3b82f6;
+
+  /* Component-specific colors */
+  --color-card-background: var(--color-background-elevated);
+  --color-button-neutral: transparent;
+  --color-button-hover: var(--color-base-300);
+  --color-button-active: var(--color-base-400);
 }
 
 :root.dark {
-  /* Light theme colors (same as before) */
-  --color-primary: #0a0a0a;
-  --color-primary-darker: #171717;
-  --color-tertiary: #262626;
-  --color-secondary-light: #404040;
-  --color-secondary: #525252;
-  --color-secondary-darker: #737373;
-  --color-secondary-darkest: #a3a3a3;
-  --delete-button-bg-color: transparent;
+  /* Base colors */
+  --color-base-100: #0a0a0a;
+  --color-base-200: #171717;
+  --color-base-300: #262626;
+  --color-base-400: #404040;
+  --color-base-500: #525252;
+  --color-base-600: #737373;
+  --color-base-700: #a3a3a3;
 
+  /* Functional colors */
+  --color-background-main: var(--color-base-100);
+  --color-background-elevated: var(--color-base-200);
+  --color-text-primary: #fafafa;
+  --color-text-secondary: var(--color-base-700);
+  --color-border: var(--color-base-400);
 
-  --color-accent-danger: #dc2626;
-  --color-accent-danger-darker: #b91c1c;
-  --color-accent-danger-lighter: #ef4444;
+  /* Accent colors remain the same for consistency */
 
-  --color-category: #2563eb;
-  --color-category-lighter: #3b82f6;
-  --color-category-darker: #1d4ed8;
-  --color-title: #fafafa;
+  /* Component-specific colors */
+  --color-card-background: var(--color-background-elevated);
+  --color-button-neutral: transparent;
+  --color-button-hover: var(--color-base-400);
+  --color-button-active: var(--color-base-500);
 }
-
-
 
 * {
   box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-color: var(--color-primary-darker);
+  background-color: var(--color-background-main);
+  color: var(--color-text-primary);
 }
 
 a {
@@ -102,26 +114,27 @@ section {
   gap: 32px;
 }
 
-/* ----- MOVIE CARD CSS ----- */
+
+/* MOVIE CARD CSS */
+
+.movie-card {
+  color: var(--color-text-primary);
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: var(--color-card-background);
+  padding: 1rem;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.movie-card:hover {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
 .movie-card__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-}
-
-.movie-card__footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.movie-card {
-  color: var(--color-title);
-  overflow: hidden;
-  border-radius: 1rem;
-  background-color: var(--color-tertiary);
-  padding: 1rem;
 }
 
 .movie-card__info {
@@ -145,7 +158,7 @@ section {
   width: 100%;
   max-width: 100%;
   aspect-ratio: 2/3;
-  background-color: var(--color-secondary-light);
+  background-color: var(--color-base-300);
   overflow: hidden;
   border-radius: 0.5rem;
 }
@@ -157,36 +170,17 @@ section {
   transition: transform 0.3s ease-in-out; 
 }
 
-
-.movie-card {
-  transition: box-shadow 0.3s ease-in-out; 
+.movie-card:hover .movie-card__image {
+  transform: scale(1.1);
 }
-
-.movie-card:hover {
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-}
-
-.movie-card:hover {
-  .movie-card__image {
-    transform: scale(1.1);
-  }
-  .movie-card__delete-btn {
-    visibility: visible;
-    opacity: 100;
-  }
-}
-
-/* ----- MOVIE TAG ----- */
 
 .movie-card__category {
   font-size: 0.8rem;
-  color: var(--color-title);
-  background-color: var(--color-secondary-light);
+  color: var(--color-text-primary);
+  background-color: var(--color-base-300);
   padding: 0.3rem 1rem;
   border-radius: 0.3rem;
 }
-
-/* ----- MOVIE DELETE BUTTON ----- */
 
 .movie-card__delete-btn {
   height: 2rem;
@@ -194,31 +188,43 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0px;
+  padding: 0;
   border: none;
   border-radius: 6px;
-  background-color: var(--delete-button-bg-color);
+  background-color: var(--color-button-neutral);
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
+
+.movie-card:hover .movie-card__delete-btn {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* MOVIE CARD BUTTONS CSS */
 
 .delete_btn-icon {
   color: var(--color-accent-danger);
   width: 1.2rem;
 }
 
-/* ----- MOVIE LIKES BUTTON CSS ----- */
+.movie-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .movie-card__likes {
   display: flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
-  padding: 0rem;
-  background-color: var(--color-primary-darker);
+  padding: 0;
+  background-color: var(--color-background-main);
   border-radius: 32px;
 }
+
 .movie-card__like-btn, .movie-card__dislike-btn {
   position: relative;
   display: flex;
@@ -228,34 +234,29 @@ section {
   background-color: transparent;
   cursor: pointer;
   padding: 1rem 1.8rem;
-  margin: 0px;
+  margin: 0;
   transition: 
-  border-color 0.3s ease-out,
-  background-color 0.15s ease-out;
+    border-color 0.3s ease-out,
+    background-color 0.15s ease-out;
 }
 
 .movie-card__like-btn:focus, .movie-card__dislike-btn:focus {
   outline: none;
 }
+
 .movie-card__like-btn:active, .movie-card__dislike-btn:active {
-  background-color: var(--color-secondary) !important;
-  border-color:  var(--color-secondary) !important;
+  background-color: var(--color-button-active) !important;
+  border-color: var(--color-button-active) !important;
 }
 
 .movie-card__like-btn {
-  border-top-left-radius: 32px;
-  border-bottom-left-radius: 32px;
-  border-bottom-right-radius: 0px;
-  border-top-right-radius: 0px;
-  border: 1px solid var(--color-primary-darker);
+  border-radius: 32px 0 0 32px;
+  border: 1px solid var(--color-background-main);
 }
 
 .movie-card__dislike-btn {
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 32px;
-  border-top-right-radius: 32px;
-  border: 1px solid var(--color-primary-darker);
+  border-radius: 0 32px 32px 0;
+  border: 1px solid var(--color-background-main);
 }
 
 .like_btn-icon, .dislike_btn-icon {
@@ -263,25 +264,86 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: var(--color-title);
+  color: var(--color-text-primary);
   width: 1.2rem;
-}
-
-.like_btn-icon, .dislike_btn-icon {
   visibility: hidden;
   opacity: 0;
-  &.outline {
-    visibility: visible;
-    opacity: 100;
-  }
+}
+
+.like_btn-icon.outline, .dislike_btn-icon.outline {
+  visibility: visible;
+  opacity: 1;
 }
 
 .movie-card__like-btn:hover, .movie-card__dislike-btn:hover {
-  background-color: var(--color-secondary-light);
-  border-color: var(--color-secondary-light);
+  background-color: var(--color-button-hover);
+  border-color: var(--color-button-hover);
 }
 
+.select-container {
+  max-width: 320px;
+  position: relative;
+  width: 100%;
+  margin: 80px auto 36px;
+}
 
+.select-button {
+  width: 320px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: var(--color-base-700);
+  color: var(--color-base-100);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  border: none;
+}
 
+.select-button:hover {
+  background-color: var(--color-base-600);
+  border: none;
+}
 
+.select-button:focus {
+  outline: none;
+}
+
+.select-dropdown {
+  z-index: 10;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin-top: 15px;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: var(--color-base-700);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: var(--color-base-100);
+}
+
+.select-item {
+  display: flex;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  gap: 1rem;
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.select-item:hover {
+  background-color: var(--color-base-600);
+}
+
+.select-item input {
+  display: none;
+}
+
+.select-item input:checked {
+  background-color: var(--color-base-600);
+}
 
